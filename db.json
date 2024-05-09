@@ -16,5 +16,11 @@
   "profile": {
     "name": "typicode"
   },
-  "users": []
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$L9kzHNBQ5RTIclIcHbSmj.uw6SOHe3YmLvzaZ3o7tcE.T/pEV8j36",
+      "id": 1
+    }
+  ]
 }
