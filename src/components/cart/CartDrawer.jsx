@@ -1,3 +1,4 @@
+import { HiMiniXMark } from "react-icons/hi2";
 import AvailableCart from "./AvailableCart";
 
 const CartDrawer = () => {
@@ -35,8 +36,13 @@ const CartDrawer = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="p-8 sm:w-full md:w-1/2 min-h-full bg-base-200 text-base-content">
-          <h2 className="ml-3">Available Cart</h2>
+        <div className="p-4 sm:p-8 w-screen md:max-w-screen-sm min-h-full bg-base-200 text-base-content">
+          <div className="flex justify-between items-center mr-3">
+            <h2 className="ml-3">Available Cart</h2>
+            <label htmlFor="my-drawer-4">
+              <HiMiniXMark />
+            </label>
+          </div>
           <AvailableCart />
         </div>
       </div>
