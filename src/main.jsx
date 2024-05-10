@@ -6,6 +6,9 @@ import ErrorPage from "./error-page.jsx";
 import Login from "./routes/Login.jsx";
 import RootLayout from "./routes/layout.jsx";
 import App from "./routes/App.jsx";
+import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
+import LuckDraw from "./routes/LuckDraw.jsx";
+import TradingCard from "./routes/TradingCard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,19 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        element: <ProtectedRoutes />,
+        children: [
+          {
+            path: "/lucky-draw",
+            element: <LuckDraw />,
+          },
+          {
+            path: "/trading",
+            element: <TradingCard />,
+          },
+        ],
       },
     ],
   },

@@ -1,6 +1,6 @@
 export default function App() {
   return (
-    <a href="/login">
+    <a href="/trading">
       Click me
     </a>
   )
