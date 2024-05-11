@@ -39,7 +39,7 @@ const CartDrawer = () => {
         <div className="p-4 sm:p-8 w-screen md:max-w-screen-sm min-h-full bg-base-200 text-base-content">
           <div className="flex justify-between items-center mr-3">
             <h2 className="ml-3">Available Cart</h2>
-            <label htmlFor="my-drawer-4">
+            <label htmlFor="my-drawer-4" className="cursor-pointer">
               <HiMiniXMark />
             </label>
           </div>

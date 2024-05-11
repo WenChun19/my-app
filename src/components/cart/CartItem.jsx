@@ -1,3 +1,5 @@
+import CartQuantityButton from "./CartQuantityButton";
+
 const CartItem = () => {
   return (
     <div className="card card-side bg-base-100 flex flex-col sm:flex-row w-full">
@@ -8,11 +10,11 @@ const CartItem = () => {
           alt="Movie"
         />
       </figure>
-      <div className="card-body sm:w-96">
+      <div className="card-body sm:w-96 p-8">
         <h2 className="card-title text-md">(Buy 3 Free 1) Golden DHA+ Growth Support - 30 sachets (Puppy Dog) (exp. 21 Jun 2024)</h2>
-        <p>Click the button to watch on Jetflix app.</p>
+        <p>32.9</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Watch</button>
+          <CartQuantityButton />
         </div>
       </div>
     </div>
