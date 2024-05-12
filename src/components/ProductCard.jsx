@@ -1,6 +1,7 @@
 import { HiMiniShoppingCart } from "react-icons/hi2";
 import { useCart } from "../provider/CartProvider";
 import { getRelativeTime } from "../utils/format-helper";
+import { currencyPrefix } from "../constants";
 
 const ProductCard = (props) => {
   const { title, price, image, date } = props;
@@ -17,7 +18,7 @@ const ProductCard = (props) => {
       </figure>
       <div className="card-body mt-3">
         <h3 className="card-title text-base">{title}</h3>
-        <p>{price}</p>
+        <p>{currencyPrefix} {price}</p>
         <div className="card-actions justify-between pr-2 pt-2">
           <div
             className={`${

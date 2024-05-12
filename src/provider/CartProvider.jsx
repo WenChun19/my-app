@@ -77,6 +77,7 @@ const CartProvider = ({ children }) => {
       currentCartProduct = {
         ...product,
         quantity: 1,
+        selected: true,
       };
       currentCartProduct.productId = currentCartProduct.id;
     }
@@ -84,6 +85,22 @@ const CartProvider = ({ children }) => {
 
     setCurrentCartProduct(currentCartProduct);
   };
+
+  const editCartProductStatus = (productId) => {
+    let currentCartProduct = {};
+    const existedCartProductIndex = cartProducts?.findIndex(
+      (product) => +product?.productId === +productId
+    );
+    if (existedCartProductIndex !== -1) {
+      currentCartProduct = {
+        ...cartProducts[existedCartProductIndex],
+      };
+      currentCartProduct.selected = !currentCartProduct.selected;
+      delete currentCartProduct.id;
+      setCurrentCartProduct(currentCartProduct);
+    }
+  };
+
   const clearCartProducts = (products = []) => {
     if (cartProductsToBeRemoved?.length > 0) {
       setCartProductsToBeCleared(cartProductsToBeRemoved);
@@ -125,6 +142,7 @@ const CartProvider = ({ children }) => {
         subtractItemQuantity,
         editItemQuantity,
         addCartProduct,
+        editCartProductStatus,
         clearCartProducts,
         getTotalCartQuantity,
         getAvailableCartProducts,
