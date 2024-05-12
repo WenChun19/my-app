@@ -48,14 +48,42 @@
           "date": "2024-05-9",
           "quantity": 1,
           "productId": 2,
-          "selected": true
+          "selected": false
+        },
+        {
+          "title": "Refreshing Dog Toothpaste - 75g",
+          "price": "56.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114463%2Fcached%2FiEyrPYNU663a0af94f400_1715079929_420x420.jpg&w=1920&q=100",
+          "date": "2024-04-27",
+          "quantity": 1,
+          "selected": true,
+          "productId": 4
         }
       ]
     },
     {
       "id": 2,
       "userId": 2,
-      "products": []
+      "products": [
+        {
+          "title": "(Buy 3 Free 1) Golden DHA+ Growth Support - 30 sachets (Puppy Dog) (exp. 21 Jun 2024)",
+          "price": "39.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114291%2Fcached%2FZqr1wVq3663a0a5913770_1715079769_420x420.jpg&w=1920&q=100",
+          "date": "2024-05-11",
+          "quantity": 2,
+          "selected": true,
+          "productId": 1
+        },
+        {
+          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
+          "price": "80.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
+          "date": "2024-05-9",
+          "quantity": 1,
+          "selected": false,
+          "productId": 2
+        }
+      ]
     },
     {
       "userId": 3,

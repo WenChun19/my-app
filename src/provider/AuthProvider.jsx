@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getCookie } from "../utils/cookies-helper";
-import { accessToken } from "../constants";
+import { getCookie, removeCookie } from "../utils/cookies-helper";
+import { accessToken, cartId } from "../constants";
 
 const AuthContext = createContext(null);
 
@@ -18,8 +18,14 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const setLogout = () => {
+    setIsLogin(false)
+    removeCookie(accessToken);
+    removeCookie(cartId);
+  };
+
   return (
-    <AuthContext.Provider value={{ isLogin, setIsLogin }}>
+    <AuthContext.Provider value={{ isLogin, setIsLogin, setLogout }}>
       {children}
     </AuthContext.Provider>
   );
