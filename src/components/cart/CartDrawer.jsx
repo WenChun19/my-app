@@ -2,6 +2,7 @@ import { HiMiniXMark } from "react-icons/hi2";
 import AvailableCart from "./AvailableCart";
 import { useCart } from "../../provider/CartProvider";
 import ExpiredCart from "./ExpiredCart";
+import { currencyPrefix } from "../../constants";
 
 const CartDrawer = () => {
   const { getTotalCartQuantity } = useCart();
@@ -42,14 +43,30 @@ const CartDrawer = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="p-4 sm:p-8 w-screen md:max-w-screen-sm min-h-full bg-base-200 text-base-content">
-          <div className="flex justify-end items-center mr-3">
-            <label htmlFor="my-drawer-4" className="cursor-pointer">
-              <HiMiniXMark />
-            </label>
+        <div className=" w-screen md:max-w-screen-sm min-h-full bg-base-200 text-base-content flex flex-col">
+          <div className="p-4 sm:p-8 flex-grow">
+            <div className="flex justify-end items-center mr-3">
+              <label htmlFor="my-drawer-4" className="cursor-pointer">
+                <HiMiniXMark />
+              </label>
+            </div>
+            <AvailableCart />
+            <ExpiredCart />
           </div>
-          <AvailableCart />
-          <ExpiredCart />
+          <div className="w-full h-14 border-2 border-slate-300 shadow-lg flex justify-end">
+            <div className="w-3/4 sm:w-1/2">
+              <div className="flex h-full">
+                <div className="flex flex-col mr-16 ">
+                  <p className="mt-1">Total</p>
+                  <p className="text-xs">{currencyPrefix}</p>
+                </div>
+                <div className="flex-grow bg-cyan-800 flex items-center justify-center text-md font-normal text-slate-200
+                hover:bg-cyan-700 " role="button">
+                  CHECKOUT
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
