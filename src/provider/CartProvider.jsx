@@ -84,9 +84,14 @@ const CartProvider = ({ children }) => {
 
     setCurrentCartProduct(currentCartProduct);
   };
-  const clearCartProducts = () => {
-    setCartProductsToBeCleared(cartProductsToBeRemoved);
-    setCartProductsToBeRemoved([]);
+  const clearCartProducts = (products = []) => {
+    if (cartProductsToBeRemoved?.length > 0) {
+      setCartProductsToBeCleared(cartProductsToBeRemoved);
+      setCartProductsToBeRemoved([]);
+      return;
+    }
+
+    setCartProductsToBeCleared(products);
   };
 
   const getTotalCartQuantity = () => {
@@ -105,6 +110,13 @@ const CartProvider = ({ children }) => {
     return availableProducts;
   };
 
+  const getExpiredCartProducts = () => {
+    const expiredProducts = cartProducts?.filter(
+      ({ date }) => !getProductAvailableStatus(date)
+    );
+    return expiredProducts;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -116,6 +128,7 @@ const CartProvider = ({ children }) => {
         clearCartProducts,
         getTotalCartQuantity,
         getAvailableCartProducts,
+        getExpiredCartProducts,
       }}
     >
       {children}

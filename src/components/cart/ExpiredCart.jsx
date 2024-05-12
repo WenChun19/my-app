@@ -1,25 +1,35 @@
 import { useCart } from "../../provider/CartProvider";
 import CartItem from "./CartItem";
 
-const AvailableCart = () => {
-  const { getAvailableCartProducts } = useCart();
-  const availableCartProducts = getAvailableCartProducts();
+const ExpiredCart = () => {
+  const { getExpiredCartProducts, clearCartProducts } = useCart();
+  const expiredProducts = getExpiredCartProducts();
 
-  // console.log(availableCartProducts);
+  if (expiredProducts?.length == 0) {
+    return <></>;
+  }
   return (
     <>
-      <h2 className="ml-3 font-semibold">Available Cart</h2>
+      <div className="ml-3 mt-7 flex items-center gap-4">
+        <h2 className=" font-semibold">Expired Cart</h2>
+        <div
+          className="btn btn-primary btn-sm"
+          onClick={() => clearCartProducts(expiredProducts)}
+        >
+          Clear
+        </div>
+      </div>
       <div className="flex flex-col m-3 border-slate-300 border-2 p-4 rounded-lg shadow-lg space-y-3">
-        {availableCartProducts?.map(
+        {expiredProducts?.map(
           ({ productId, title, image, price, quantity }) => (
             <div key={productId} className="flex gap-1 flex-wrap">
-              <input type="checkbox" defaultChecked className="checkbox-sm" />
               <CartItem
                 title={title}
                 image={image}
                 price={price}
                 quantity={quantity}
                 productId={productId}
+                invalidStatus="EXPIRED"
               />
             </div>
           )
@@ -29,4 +39,4 @@ const AvailableCart = () => {
   );
 };
 
-export default AvailableCart;
+export default ExpiredCart;

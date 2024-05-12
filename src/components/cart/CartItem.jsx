@@ -1,9 +1,24 @@
 import CartQuantityButton from "./CartQuantityButton";
 
-const CartItem = ({ productId, title, image, price, quantity }) => {
+const CartItem = ({
+  productId,
+  title,
+  image,
+  price,
+  quantity,
+  invalidStatus,
+}) => {
   return (
     <div className="card card-side bg-base-100 flex flex-col sm:flex-row w-full">
-      <figure>
+      <figure className="relative">
+        {invalidStatus && (
+          <div
+            className="absolute inset-0 bg-slate-50 opacity-75 w-full flex items-center justify-center
+        font-extrabold text-slate-400"
+          >
+            {invalidStatus}
+          </div>
+        )}
         <img
           className="w-3/4 my-6 sm:my-3 aspect-square object-contain"
           src={image}
@@ -14,7 +29,9 @@ const CartItem = ({ productId, title, image, price, quantity }) => {
         <h2 className="card-title text-sm">{title}</h2>
         <p>{price}</p>
         <div className="card-actions justify-end">
-          <CartQuantityButton productId={productId} quantity={quantity} />
+          {!invalidStatus && (
+            <CartQuantityButton productId={productId} quantity={quantity} />
+          )}
         </div>
       </div>
     </div>

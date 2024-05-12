@@ -40,7 +40,16 @@
     {
       "id": 1,
       "userId": 1,
-      "products": []
+      "products": [
+        {
+          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
+          "price": "80.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
+          "date": "2024-05-9",
+          "quantity": 1,
+          "productId": 2
+        }
+      ]
     },
     {
       "id": 2,
