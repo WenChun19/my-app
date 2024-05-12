@@ -31,6 +31,65 @@
       "price": "225.5"
     }
   ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "products": [
+        {
+          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
+          "price": "80.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
+          "quantity": 2,
+          "productId": 2
+        },
+        {
+          "title": "Citrus & Lavender Anti-Flea Dog Shampoo - 500ml (Free Supplement Trial Set)",
+          "price": "92.5",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114300%2Fcached%2FYGjDg0ZM663a0c51178b6_1715080273_420x420.jpg&w=1920&q=100",
+          "quantity": 1,
+          "productId": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "products": []
+    },
+    {
+      "userId": 3,
+      "products": [],
+      "id": 3
+    },
+    {
+      "userId": 4,
+      "products": [
+        {
+          "title": "(Buy 3 Free 1) Golden DHA+ Growth Support - 30 sachets (Puppy Dog) (exp. 21 Jun 2024)",
+          "price": "39.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114291%2Fcached%2FZqr1wVq3663a0a5913770_1715079769_420x420.jpg&w=1920&q=100",
+          "quantity": 3,
+          "productId": 1
+        },
+        {
+          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
+          "price": "80.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
+          "quantity": 1,
+          "productId": 2
+        },
+        {
+          "title": "Citrus & Lavender Anti-Flea Dog Shampoo - 500ml (Free Supplement Trial Set)",
+          "price": "92.5",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114300%2Fcached%2FYGjDg0ZM663a0c51178b6_1715080273_420x420.jpg&w=1920&q=100",
+          "quantity": 1,
+          "productId": 3
+        }
+      ],
+      "id": 4
+    }
+  ],
   "comments": [
     {
       "id": 1,
@@ -45,7 +104,26 @@
     {
       "email": "test@gmail.com",
       "password": "$2a$10$L9kzHNBQ5RTIclIcHbSmj.uw6SOHe3YmLvzaZ3o7tcE.T/pEV8j36",
-      "id": 1
+      "id": 1,
+      "cartId": 1
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "$2a$10$cXeVlRrOciKlUVwLjaTJ6.Fu//4ko1K9V8.hGQCz67Ka37VJ3tDpK",
+      "id": 2,
+      "cartId": 2
+    },
+    {
+      "email": "test2@gmail.com",
+      "id": 3,
+      "password": "$2a$10$pEwF5dUGfWnrjTsY6h504ORmgtlGLyoPMe2aJnmxoUZJB9.YmpgmC",
+      "cartId": 3
+    },
+    {
+      "email": "test3@gmail.com",
+      "id": 4,
+      "password": "$2a$10$Hz.rdmY1eiFQIWvY9FSvYelAVQ.NJ1E6sO7h6tT.t6ME8LpGVaRK6",
+      "cartId": 4
     }
   ]
 }
