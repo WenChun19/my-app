@@ -36,6 +36,49 @@
       "date": "2024-03-4"
     }
   ],
+  "cards": [
+    {
+      "id": 1,
+      "title": "Shiba"
+    },
+    {
+      "id": 2,
+      "title": "Retriever"
+    },
+    {
+      "id": 3,
+      "title": "Husky"
+    },
+    {
+      "id": 4,
+      "title": "Bulldog"
+    },
+    {
+      "id": 5,
+      "title": "Chihuahua"
+    },
+    {
+      "id": 6,
+      "title": "Beagle"
+    },
+    {
+      "id": 7,
+      "title": "Poodle"
+    },
+    {
+      "id": 8,
+      "title": "Boxer"
+    },
+    {
+      "id": 9,
+      "title": "Sheltie"
+    },
+    {
+      "id": 10,
+      "title": "Terrier"
+    }
+  ],
+  "collections": [],
   "carts": [
     {
       "id": 1,
@@ -48,7 +91,7 @@
           "date": "2024-05-9",
           "quantity": 1,
           "productId": 2,
-          "selected": false
+          "selected": true
         },
         {
           "title": "Refreshing Dog Toothpaste - 75g",
