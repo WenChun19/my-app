@@ -1,13 +1,16 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import useCartProducts from "../hooks/useCartProducts";
 import { getProductAvailableStatus } from "../utils/main-helper";
+import DeleteCartModal from "../components/cart/DeleteCartModal";
 
 const CartContext = createContext(null);
 
 export const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-  const [cartProducts, setCurrentCartProduct] = useCartProducts();
+  const [cartProductsToBeRemoved, setCartProductsToBeRemoved] = useState([]);
+  const [cartProducts, setCurrentCartProduct, setCartProductsToBeCleared] =
+    useCartProducts();
 
   const addItemQuantity = (productId) => {
     let currentCartProduct = {};
@@ -33,6 +36,11 @@ const CartProvider = ({ children }) => {
       currentCartProduct = {
         ...cartProducts[existedCartProductIndex],
       };
+      if (currentCartProduct.quantity == 1) {
+        setCartProductsToBeRemoved([currentCartProduct]);
+        return;
+      }
+
       currentCartProduct.quantity--;
       delete currentCartProduct.id;
       setCurrentCartProduct(currentCartProduct);
@@ -76,7 +84,10 @@ const CartProvider = ({ children }) => {
 
     setCurrentCartProduct(currentCartProduct);
   };
-  const clearCartProducts = () => {};
+  const clearCartProducts = () => {
+    setCartProductsToBeCleared(cartProductsToBeRemoved);
+    setCartProductsToBeRemoved([]);
+  };
 
   const getTotalCartQuantity = () => {
     const totalQuantity = cartProducts?.reduce(
@@ -108,6 +119,14 @@ const CartProvider = ({ children }) => {
       }}
     >
       {children}
+
+      {cartProductsToBeRemoved?.length > 0 && (
+        <DeleteCartModal
+          cartProductsToBeRemoved={cartProductsToBeRemoved}
+          setCartProductsToBeRemoved={setCartProductsToBeRemoved}
+          clearCartProducts={clearCartProducts}
+        />
+      )}
     </CartContext.Provider>
   );
 };

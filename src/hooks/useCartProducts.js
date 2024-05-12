@@ -7,6 +7,8 @@ import useLocalStorage from "./useLocalStorage";
 const useCartProducts = () => {
   const { isLogin } = useAuth();
   const [currentCartProduct, setCurrentCartProduct] = useState({});
+  const [cartProductsToBeCleared, setCartProductsToBeCleared] = useState([]);
+
   const [storageCartProducts, setStorageCartProducts] =
     useLocalStorage("cartProducts");
 
@@ -19,10 +21,14 @@ const useCartProducts = () => {
 
   const editMutation = useMutation({
     mutationFn: updateCartProducts,
-    onSuccess: () => queryClient.invalidateQueries("cartProducts"),
+    onSuccess: () => {
+      queryClient.invalidateQueries("cartProducts");
+      setCartProductsToBeCleared([]);
+    },
   });
   let cartProducts = isLogin ? data?.products ?? [] : storageCartProducts;
 
+  // edit cart products
   useEffect(() => {
     if (Object.keys(currentCartProduct)?.length > 0) {
       const existedCartProductIndex = cartProducts?.findIndex(
@@ -52,7 +58,31 @@ const useCartProducts = () => {
     }
   }, [currentCartProduct]);
 
-  return [cartProducts, setCurrentCartProduct];
+  // remove cart products
+  useEffect(() => {
+    if (cartProductsToBeCleared?.length > 0) {
+      let latestCartProducts = [];
+      const clearedProductIds = cartProductsToBeCleared?.map(
+        (product) => product?.productId
+      );
+      latestCartProducts = cartProducts?.filter(
+        (cartProduct) => !clearedProductIds?.includes(cartProduct?.productId)
+      );
+
+      const latestCart = {
+        ...data,
+        products: latestCartProducts,
+      };
+
+      if (isLogin) {
+        editMutation.mutate(latestCart);
+      } else {
+        setStorageCartProducts(latestCartProducts);
+      }
+    }
+  }, [cartProductsToBeCleared?.length]);
+
+  return [cartProducts, setCurrentCartProduct, setCartProductsToBeCleared];
 };
 
 export default useCartProducts;

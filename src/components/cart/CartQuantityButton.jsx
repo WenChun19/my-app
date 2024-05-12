@@ -15,7 +15,7 @@ const CartQuantityButton = ({ productId, quantity }) => {
       <input
         type="number"
         className="w-10 text-center"
-        min={0}
+        min={1}
         value={quantity}
         onChange={editItemQuantity(productId)}
       />
