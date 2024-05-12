@@ -19,4 +19,12 @@ export const getRelativeTime = (date) => {
   return dayjs(date).fromNow();
 };
 
+export const formatPrice = (price) => {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "MYR",
+    maximumFractionDigits: 2
+  });
 
+  return formatter.format(price);
+};

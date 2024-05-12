@@ -1,4 +1,4 @@
-import { currencyPrefix } from "../../constants";
+import { formatPrice } from "../../utils/format-helper";
 import CartQuantityButton from "./CartQuantityButton";
 
 const CartItem = ({
@@ -28,7 +28,7 @@ const CartItem = ({
       </figure>
       <div className="card-body sm:w-96 py-6 px-4">
         <h2 className="card-title text-sm">{title}</h2>
-        <p>{currencyPrefix} {price}</p>
+        <p>{formatPrice(price)}</p>
         <div className="card-actions justify-end">
           {!invalidStatus && (
             <CartQuantityButton productId={productId} quantity={quantity} />

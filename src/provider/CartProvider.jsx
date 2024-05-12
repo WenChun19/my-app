@@ -103,7 +103,7 @@ const CartProvider = ({ children }) => {
 
   const clearCartProducts = (products = []) => {
     if (cartProductsToBeRemoved?.length > 0) {
-      setCartProductsToBeCleared(cartProductsToBeRemoved);
+      setCartProductsToBeCleared([...cartProductsToBeRemoved]);
       setCartProductsToBeRemoved([]);
       return;
     }
@@ -134,6 +134,18 @@ const CartProvider = ({ children }) => {
     return expiredProducts;
   };
 
+  const calculateTotalCartPrices = () => {
+    const totalPrice = cartProducts?.reduce((acc, cartProduct) => {
+      if (cartProduct?.selected) {
+        const subTotal = +cartProduct?.quantity * +cartProduct?.price;
+        acc += subTotal;
+      }
+      return acc;
+    }, 0);
+
+    return totalPrice;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -147,6 +159,7 @@ const CartProvider = ({ children }) => {
         getTotalCartQuantity,
         getAvailableCartProducts,
         getExpiredCartProducts,
+        calculateTotalCartPrices,
       }}
     >
       {children}

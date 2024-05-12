@@ -1,12 +1,13 @@
 import { HiMiniXMark } from "react-icons/hi2";
-import AvailableCart from "./AvailableCart";
 import { useCart } from "../../provider/CartProvider";
+import { formatPrice } from "../../utils/format-helper";
+import AvailableCart from "./AvailableCart";
 import ExpiredCart from "./ExpiredCart";
-import { currencyPrefix } from "../../constants";
 
 const CartDrawer = () => {
-  const { getTotalCartQuantity } = useCart();
+  const { getTotalCartQuantity, calculateTotalCartPrices } = useCart();
   const quantity = getTotalCartQuantity();
+  const totalCartPrices = calculateTotalCartPrices();
   return (
     <div className="drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -58,10 +59,15 @@ const CartDrawer = () => {
               <div className="flex h-full">
                 <div className="flex flex-col mr-16 ">
                   <p className="mt-1">Total</p>
-                  <p className="text-xs">{currencyPrefix}</p>
+                  <p className="text-xs font-bold">
+                    {formatPrice(totalCartPrices)}
+                  </p>
                 </div>
-                <div className="flex-grow bg-cyan-800 flex items-center justify-center text-md font-normal text-slate-200
-                hover:bg-cyan-700 " role="button">
+                <div
+                  className="flex-grow bg-cyan-800 flex items-center justify-center text-md font-normal text-slate-200
+                hover:bg-cyan-700 "
+                  role="button"
+                >
                   CHECKOUT
                 </div>
               </div>

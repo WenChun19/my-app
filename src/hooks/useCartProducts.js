@@ -23,7 +23,6 @@ const useCartProducts = () => {
     mutationFn: updateCartProducts,
     onSuccess: () => {
       queryClient.invalidateQueries("cartProducts");
-      setCartProductsToBeCleared([]);
     },
   });
   let cartProducts = isLogin ? data?.products ?? [] : storageCartProducts;
@@ -79,6 +78,7 @@ const useCartProducts = () => {
       } else {
         setStorageCartProducts(latestCartProducts);
       }
+      setCartProductsToBeCleared([]);
     }
   }, [cartProductsToBeCleared?.length]);
 

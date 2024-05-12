@@ -5,7 +5,10 @@ const AvailableCart = () => {
   const { getAvailableCartProducts, editCartProductStatus } = useCart();
   const availableCartProducts = getAvailableCartProducts();
 
-  console.log(availableCartProducts);
+  if(availableCartProducts?.length == 0) {
+    return <div>Empty cart</div>
+  }
+  // console.log(availableCartProducts);
   return (
     <>
       <h2 className="ml-3 font-semibold">Available Cart</h2>
