@@ -4,53 +4,43 @@
       "id": 1,
       "title": "(Buy 3 Free 1) Golden DHA+ Growth Support - 30 sachets (Puppy Dog) (exp. 21 Jun 2024)",
       "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114291%2Fcached%2FZqr1wVq3663a0a5913770_1715079769_420x420.jpg&w=1920&q=100",
-      "price": "39.9"
+      "price": "39.9",
+      "date": "2024-05-11"
     },
     {
       "id": 2,
       "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
       "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
-      "price": "80.9"
+      "price": "80.9",
+      "date": "2024-05-9"
     },
     {
       "id": 3,
       "title": "Citrus & Lavender Anti-Flea Dog Shampoo - 500ml (Free Supplement Trial Set)",
       "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114300%2Fcached%2FYGjDg0ZM663a0c51178b6_1715080273_420x420.jpg&w=1920&q=100",
-      "price": "92.5"
+      "price": "92.5",
+      "date": "2024-04-12"
     },
     {
       "id": 4,
       "title": "Refreshing Dog Toothpaste - 75g",
       "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114463%2Fcached%2FiEyrPYNU663a0af94f400_1715079929_420x420.jpg&w=1920&q=100",
-      "price": "56.9"
+      "price": "56.9",
+      "date": "2024-04-27"
     },
     {
       "id": 5,
       "title": "Ultimate Skin Care Triple 500ml Combo",
       "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114694%2Fcached%2FaxkS1Y6o663a0bbe9e540_1715080126_420x420.jpg&w=1920&q=100",
-      "price": "225.5"
+      "price": "225.5",
+      "date": "2024-03-4"
     }
   ],
   "carts": [
     {
       "id": 1,
       "userId": 1,
-      "products": [
-        {
-          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
-          "price": "80.9",
-          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
-          "quantity": 2,
-          "productId": 2
-        },
-        {
-          "title": "Citrus & Lavender Anti-Flea Dog Shampoo - 500ml (Free Supplement Trial Set)",
-          "price": "92.5",
-          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114300%2Fcached%2FYGjDg0ZM663a0c51178b6_1715080273_420x420.jpg&w=1920&q=100",
-          "quantity": 1,
-          "productId": 3
-        }
-      ]
+      "products": []
     },
     {
       "id": 2,
@@ -64,29 +54,7 @@
     },
     {
       "userId": 4,
-      "products": [
-        {
-          "title": "(Buy 3 Free 1) Golden DHA+ Growth Support - 30 sachets (Puppy Dog) (exp. 21 Jun 2024)",
-          "price": "39.9",
-          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114291%2Fcached%2FZqr1wVq3663a0a5913770_1715079769_420x420.jpg&w=1920&q=100",
-          "quantity": 3,
-          "productId": 1
-        },
-        {
-          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
-          "price": "80.9",
-          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
-          "quantity": 1,
-          "productId": 2
-        },
-        {
-          "title": "Citrus & Lavender Anti-Flea Dog Shampoo - 500ml (Free Supplement Trial Set)",
-          "price": "92.5",
-          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114300%2Fcached%2FYGjDg0ZM663a0c51178b6_1715080273_420x420.jpg&w=1920&q=100",
-          "quantity": 1,
-          "productId": 3
-        }
-      ],
+      "products": [],
       "id": 4
     }
   ],
