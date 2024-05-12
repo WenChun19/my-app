@@ -1,7 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { signIn } from "../api/login";
+import { editUser, signIn, signUp } from "../api/auth";
+import { getCookie, setCookie } from "../utils/cookies-helper";
+import { accessToken, cartId } from "../constants";
+import { addCartProduct } from "../api/carts";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../provider/AuthProvider";
 
 const loginSchema = z.object({
   email: z.string().min(1, { message: "Email is required" }),
@@ -11,21 +16,48 @@ const loginSchema = z.object({
 });
 
 const Login = () => {
+  const { isLogin, setIsLogin } = useAuth();
+  const navigate = useNavigate();
   const { register, handleSubmit, formState } = useForm({
     resolver: zodResolver(loginSchema),
   });
 
   const { errors } = formState;
+  // const registerUser = async (data) => {
+  //   const response = await signUp(data);
+
+  //   if (response?.user?.id) {
+  //     setCookie(accessToken, response?.accessToken);
+  //     const cart = await addCartProduct({
+  //       userId: response?.user?.id,
+  //       products: [],
+  //     });
+
+  //     await editUser({
+  //       ...response?.user,
+  //       password: data?.password,
+  //       cartId: cart?.id,
+  //     });
+  //     setCookie(cartId, cart?.id);
+  //     navigate("/");
+  //   }
+  // };
 
   const onSubmit = async (data) => {
     const response = await signIn(data);
 
-    console.log(response)
+    console.log(response);
     if (response?.accessToken) {
-      console.log("success");
+      setCookie(accessToken, response?.accessToken);
+      setCookie(cartId, response?.user?.cartId);
+      setIsLogin(true);
+      navigate("/");
     }
   };
 
+  if (isLogin) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <section className="w-full h-full flex items-center justify-center">
       <div className="border-2 border-blue-200 w-1/2  p-3  rounded-md">
