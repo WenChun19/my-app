@@ -1,16 +1,15 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page.jsx";
-import Login from "./routes/Login.jsx";
-import RootLayout from "./routes/layout.jsx";
+import "./index.css";
 import App from "./routes/App.jsx";
-import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
+import RootLayout from "./routes/layout.jsx";
+import Login from "./routes/Login.jsx";
 import LuckDraw from "./routes/LuckDraw.jsx";
+import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
 import TradingCard from "./routes/TradingCard.jsx";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import AuthProvider from "./provider/AuthProvider.jsx";
 
 const queryClient = new QueryClient();
 
@@ -48,9 +47,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <RouterProvider router={router} />
     </QueryClientProvider>
   </React.StrictMode>
 );

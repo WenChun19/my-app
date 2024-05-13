@@ -3,10 +3,16 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { editUser, signIn, signUp } from "../api/auth";
 import { getCookie, setCookie } from "../utils/cookies-helper";
-import { accessToken, cartId } from "../constants";
+import {
+  accessToken,
+  cartId,
+  collectionId,
+  firstDailyLimit,
+} from "../constants";
 import { addCartProduct } from "../api/carts";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
+import { addTradingCollections } from "../api/collections";
 
 const loginSchema = z.object({
   email: z.string().min(1, { message: "Email is required" }),
@@ -23,6 +29,7 @@ const Login = () => {
   });
 
   const { errors } = formState;
+
   // const registerUser = async (data) => {
   //   const response = await signUp(data);
 
@@ -33,12 +40,21 @@ const Login = () => {
   //       products: [],
   //     });
 
+  //     const collection = await addTradingCollections({
+  //       userId: response?.user?.id,
+  //       cards: [],
+  //       dailyLimit: firstDailyLimit,
+  //       availableDate: null,
+  //     });
+
   //     await editUser({
   //       ...response?.user,
   //       password: data?.password,
   //       cartId: cart?.id,
+  //       collectionId: collection?.id,
   //     });
   //     setCookie(cartId, cart?.id);
+  //     setCookie(collectionId, collection?.id);
   //     navigate("/");
   //   }
   // };
@@ -50,6 +66,7 @@ const Login = () => {
     if (response?.accessToken) {
       setCookie(accessToken, response?.accessToken);
       setCookie(cartId, response?.user?.cartId);
+      setCookie(collectionId, response?.user?.collectionId);
       setIsLogin(true);
       navigate("/");
     }

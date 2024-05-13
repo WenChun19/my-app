@@ -1,3 +1,5 @@
+import { accessToken, cartId, collectionId } from "../constants";
+
 export const setCookie = (name, value) => {
   var expires = "";
   var date = new Date();
@@ -20,4 +22,10 @@ export const getCookie = (name) => {
 
 export const removeCookie = (name) => {
   document.cookie = name + "=; Max-Age=-99999999;";
+};
+
+export const resetAuth = () => {
+  removeCookie(accessToken);
+  removeCookie(cartId);
+  removeCookie(collectionId);
 };

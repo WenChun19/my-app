@@ -78,7 +78,155 @@
       "title": "Terrier"
     }
   ],
-  "collections": [],
+  "collections": [
+    {
+      "id": 1,
+      "userId": 1,
+      "cards": [
+        {
+          "id": 8,
+          "title": "Boxer",
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "title": "Beagle",
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "title": "Sheltie",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "title": "Husky",
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "title": "Shiba",
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "title": "Chihuahua",
+          "quantity": 1
+        }
+      ],
+      "availableDate": "2024-05-14",
+      "dailyLimit": 9
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "cards": [
+        {
+          "id": 8,
+          "title": "Boxer",
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "title": "Retriever",
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "title": "Terrier",
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "title": "Beagle",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "title": "Bulldog",
+          "quantity": 1
+        }
+      ],
+      "availableDate": "2024-05-14",
+      "dailyLimit": 9
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "cards": [
+        {
+          "id": 8,
+          "title": "Boxer",
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "title": "Chihuahua",
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "title": "Beagle",
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "title": "Terrier",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "title": "Retriever",
+          "quantity": 1
+        }
+      ],
+      "availableDate": "2024-05-14",
+      "dailyLimit": 9
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "cards": [
+        {
+          "id": 1,
+          "title": "Shiba",
+          "quantity": 3
+        },
+        {
+          "id": 3,
+          "title": "Husky",
+          "quantity": 2
+        },
+        {
+          "id": 8,
+          "title": "Boxer",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "quantity": 1
+        }
+      ],
+      "availableDate": null,
+      "dailyLimit": 0
+    }
+  ],
   "carts": [
     {
       "id": 1,
@@ -135,44 +283,57 @@
     },
     {
       "userId": 4,
-      "products": [],
+      "products": [
+        {
+          "title": "Citrus & Lavender Anti-Flea Dog Shampoo - 500ml (Free Supplement Trial Set)",
+          "price": "92.5",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114300%2Fcached%2FYGjDg0ZM663a0c51178b6_1715080273_420x420.jpg&w=1920&q=100",
+          "date": "2024-04-12",
+          "quantity": 1,
+          "selected": false,
+          "productId": 3
+        },
+        {
+          "title": "Refreshing Dog Toothpaste - 75g",
+          "price": "56.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114463%2Fcached%2FiEyrPYNU663a0af94f400_1715079929_420x420.jpg&w=1920&q=100",
+          "date": "2024-04-27",
+          "quantity": 1,
+          "selected": true,
+          "productId": 4
+        }
+      ],
       "id": 4
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "email": "test@gmail.com",
       "password": "$2a$10$L9kzHNBQ5RTIclIcHbSmj.uw6SOHe3YmLvzaZ3o7tcE.T/pEV8j36",
       "id": 1,
-      "cartId": 1
+      "cartId": 1,
+      "collectionId": 1
     },
     {
       "email": "test1@gmail.com",
       "password": "$2a$10$cXeVlRrOciKlUVwLjaTJ6.Fu//4ko1K9V8.hGQCz67Ka37VJ3tDpK",
       "id": 2,
-      "cartId": 2
+      "cartId": 2,
+      "collectionId": 2
     },
     {
       "email": "test2@gmail.com",
       "id": 3,
       "password": "$2a$10$pEwF5dUGfWnrjTsY6h504ORmgtlGLyoPMe2aJnmxoUZJB9.YmpgmC",
-      "cartId": 3
+      "cartId": 3,
+      "collectionId": 3
     },
     {
       "email": "test3@gmail.com",
       "id": 4,
       "password": "$2a$10$Hz.rdmY1eiFQIWvY9FSvYelAVQ.NJ1E6sO7h6tT.t6ME8LpGVaRK6",
-      "cartId": 4
+      "cartId": 4,
+      "collectionId": 4
     }
   ]
 }

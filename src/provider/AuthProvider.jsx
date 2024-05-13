@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getCookie, removeCookie } from "../utils/cookies-helper";
-import { accessToken, cartId } from "../constants";
+import { accessToken } from "../constants";
+import { getCookie, resetAuth } from "../utils/cookies-helper";
+import { useLocation } from "react-router-dom";
 
 const AuthContext = createContext(null);
 
@@ -8,6 +9,7 @@ export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [isLogin, setIsLogin] = useState(!!getCookie(accessToken));
+  const location = useLocation();
 
   useEffect(() => {
     const accessTkn = getCookie(accessToken);
@@ -16,12 +18,11 @@ const AuthProvider = ({ children }) => {
     } else {
       setIsLogin(false);
     }
-  }, []);
+  }, [location?.pathname]);
 
   const setLogout = () => {
-    setIsLogin(false)
-    removeCookie(accessToken);
-    removeCookie(cartId);
+    setIsLogin(false);
+    resetAuth();
   };
 
   return (

@@ -1,14 +1,11 @@
-import { accessToken, cartId } from "../constants";
-import { removeCookie } from "./cookies-helper";
+import { resetAuth } from "./cookies-helper";
 
 export const validateResult = (result) => {
   // console.log(result);
   if (typeof result === "string" && result?.includes("malformed")) {
-    removeCookie(cartId);
-    removeCookie(accessToken);
+    resetAuth()
     // TO-DO
     // Need redirect logout
-
 
     // throw new Error(401);
   }
