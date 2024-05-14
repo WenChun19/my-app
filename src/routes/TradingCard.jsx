@@ -8,9 +8,13 @@ import { generateRandomInteger } from "../utils/main-helper";
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { comingDailyLimit } from "../constants";
+import PopUpModal from "../components/trading-card/PopUpModal";
+import { useRef, useState } from "react";
 dayjs.extend(isSameOrAfter);
 
 const TradingCard = () => {
+  const ref = useRef();
+  const [randomCard, setRandomCard] = useState(null);
   const { data: tradingCards } = useQuery({
     queryKey: ["tradingCards"],
     queryFn: getTradingCards,
@@ -29,7 +33,6 @@ const TradingCard = () => {
     },
   });
 
-  // console.log(tradingCards);
   const handleDrawCard = () => {
     if (Object.keys(tradingCollection)?.length === 0) {
       console.log("please login to continue");
@@ -38,22 +41,13 @@ const TradingCard = () => {
     let updatedTradingCollection = { ...tradingCollection };
 
     let allowDraw = true;
-    let dailyLimit = updatedTradingCollection?.dailyLimit;
     let availableDate = updatedTradingCollection?.availableDate;
 
-    if (dailyLimit == 0 && dayjs().isSame(availableDate ?? dayjs(), "day")) {
-      updatedTradingCollection.dailyLimit = comingDailyLimit;
-      updatedTradingCollection.availableDate = dayjs()
-        .add(1, "day")
-        .format("YYYY-MM-DD");
-      allowDraw = false;
-      console.log("please come back tomorrow");
-    }
     if (dayjs().isAfter(availableDate ?? dayjs(), "day")) {
       updatedTradingCollection.dailyLimit = comingDailyLimit;
       updatedTradingCollection.availableDate = dayjs().format("YYYY-MM-DD");
       allowDraw = true;
-    } else if (availableDate) {
+    } else if (dayjs().isBefore(availableDate ?? dayjs(), "day")) {
       allowDraw = false;
       console.log("please come back tomorrow");
     }
@@ -62,8 +56,14 @@ const TradingCard = () => {
 
     const randomCard = tradingCards?.[randomIndex];
 
-    console.log(randomCard);
+    // console.log(randomCard);
     if (allowDraw && randomCard) {
+      setRandomCard(randomCard);
+
+      if (ref?.current) {
+        ref.current.showModal();
+      }
+
       const currentCardCollectionIndex =
         updatedTradingCollection?.cards?.findIndex(
           (card) => +card?.id === +randomCard?.id
@@ -84,6 +84,17 @@ const TradingCard = () => {
       }
 
       updatedTradingCollection.dailyLimit--;
+
+      if (
+        updatedTradingCollection.dailyLimit == 0 &&
+        dayjs().isSame(availableDate ?? dayjs(), "day")
+      ) {
+        updatedTradingCollection.dailyLimit = comingDailyLimit;
+        updatedTradingCollection.availableDate = dayjs()
+          .add(1, "day")
+          .format("YYYY-MM-DD");
+        console.log("please come back tomorrow");
+      }
       // console.log(randomIndex);
       // console.log(randomCard);
       // console.log(updatedTradingCollection);
@@ -91,6 +102,9 @@ const TradingCard = () => {
     console.log(updatedTradingCollection);
     mutation.mutate(updatedTradingCollection);
   };
+
+  const handleClaimLuckyDraw = () => {};
+
   return (
     <section className="h-full bg-trading-background bg-cover relative">
       <div className="absolute inset-0 bg-gradient-to-r from-white to-slate-800 opacity-40"></div>
@@ -121,24 +135,30 @@ const TradingCard = () => {
           </div>
         </div>
         <div className="flex-1 m-auto z-10">
-          <button
-            className="btn btn-outline text-white btn-lg"
-            onClick={handleDrawCard}
-          >
-            Draw
-          </button>
-          {dayjs().isSameOrAfter(
-            tradingCollection?.availableDate ?? dayjs(),
-            "day"
-          ) && tradingCollection?.dailyLimit > 0 ? (
-            <div className="text-white w-20 mt-3 text-xs pl-2">
-              You have {tradingCollection?.dailyLimit} chances left today
-            </div>
-          ) : (
-            <></>
-          )}
+          <div className="flex gap-2 sm:flex-row sm:gap-4 flex-col items-center">
+            <button
+              className="btn btn-outline text-white btn-lg"
+              onClick={handleDrawCard}
+            >
+              Draw
+            </button>
+          </div>
+
+          <div className="text-white w-20 mt-3 text-xs pl-2">
+            {dayjs().isSameOrAfter(
+              tradingCollection?.availableDate ?? dayjs(),
+              "day"
+            ) && tradingCollection?.dailyLimit > 0
+              ? `You have ${tradingCollection?.dailyLimit} chances for drawing cards today`
+              : "Owow no more already! Come back tomorrow"}
+          </div>
         </div>
       </div>
+      <PopUpModal
+        ref={ref}
+        title={randomCard?.title}
+        image={randomCard?.image}
+      />
     </section>
   );
 };

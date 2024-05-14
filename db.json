@@ -39,43 +39,53 @@
   "cards": [
     {
       "id": 1,
-      "title": "Shiba"
+      "title": "Shiba",
+      "image": "shiba.png"
     },
     {
       "id": 2,
-      "title": "Retriever"
+      "title": "Retriever",
+      "image": "retriever.png"
     },
     {
       "id": 3,
-      "title": "Husky"
+      "title": "Husky",
+      "image": "husky-left-white.png"
     },
     {
       "id": 4,
-      "title": "Bulldog"
+      "title": "Bulldog",
+      "image": "bulldog.jpg"
     },
     {
       "id": 5,
-      "title": "Chihuahua"
+      "title": "Chihuahua",
+      "image": "chihuahua-left.jpg"
     },
     {
       "id": 6,
-      "title": "Beagle"
+      "title": "Beagle",
+      "image": "beagle-left.png"
     },
     {
       "id": 7,
-      "title": "Poodle"
+      "title": "Poodle",
+      "image": "poodle-left-white.png"
     },
     {
       "id": 8,
-      "title": "Boxer"
+      "title": "Boxer",
+      "image": "boxer.jpg"
     },
     {
       "id": 9,
-      "title": "Sheltie"
+      "title": "Sheltie",
+      "image": "sheltie.jpg"
     },
     {
       "id": 10,
-      "title": "Terrier"
+      "title": "Terrier",
+      "image": "terrier-white.jpg"
     }
   ],
   "collections": [
@@ -86,7 +96,7 @@
         {
           "id": 8,
           "title": "Boxer",
-          "quantity": 1
+          "quantity": 3
         },
         {
           "id": 6,
@@ -106,7 +116,7 @@
         {
           "id": 3,
           "title": "Husky",
-          "quantity": 1
+          "quantity": 3
         },
         {
           "id": 1,
@@ -116,10 +126,25 @@
         {
           "id": 5,
           "title": "Chihuahua",
+          "quantity": 3
+        },
+        {
+          "id": 4,
+          "title": "Bulldog",
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "title": "Terrier",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "title": "Retriever",
           "quantity": 1
         }
       ],
-      "availableDate": "2024-05-14",
+      "availableDate": "2024-05-15",
       "dailyLimit": 9
     },
     {
@@ -129,35 +154,50 @@
         {
           "id": 8,
           "title": "Boxer",
-          "quantity": 2
+          "quantity": 3
         },
         {
           "id": 2,
           "title": "Retriever",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 10,
           "title": "Terrier",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 6,
           "title": "Beagle",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 7,
           "title": "Poodle",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 4,
           "title": "Bulldog",
           "quantity": 1
+        },
+        {
+          "id": 5,
+          "title": "Chihuahua",
+          "quantity": 2
+        },
+        {
+          "id": 3,
+          "title": "Husky",
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "title": "Shiba",
+          "quantity": 1
         }
       ],
-      "availableDate": "2024-05-14",
+      "availableDate": "2024-05-15",
       "dailyLimit": 9
     },
     {
@@ -205,12 +245,49 @@
         {
           "id": 1,
           "title": "Shiba",
-          "quantity": 3
+          "quantity": 5
         },
         {
           "id": 3,
           "title": "Husky",
+          "quantity": 4
+        },
+        {
+          "id": 8,
+          "title": "Boxer",
           "quantity": 2
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "title": "Retriever",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "title": "Bulldog",
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "title": "Sheltie",
+          "quantity": 1
+        }
+      ],
+      "availableDate": "2024-05-15",
+      "dailyLimit": 9
+    },
+    {
+      "userId": 5,
+      "cards": [
+        {
+          "id": 9,
+          "title": "Sheltie",
+          "quantity": 1
         },
         {
           "id": 8,
@@ -218,13 +295,73 @@
           "quantity": 1
         },
         {
-          "id": 7,
-          "title": "Poodle",
+          "id": 5,
+          "title": "Chihuahua",
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "title": "Terrier",
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "title": "Beagle",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "title": "Husky",
           "quantity": 1
         }
       ],
+      "dailyLimit": 1,
       "availableDate": null,
-      "dailyLimit": 0
+      "id": 5
+    },
+    {
+      "userId": 6,
+      "cards": [
+        {
+          "id": 3,
+          "title": "Husky",
+          "image": "husky-left-white.png",
+          "quantity": 2
+        },
+        {
+          "id": 5,
+          "title": "Chihuahua",
+          "image": "chihuahua-left.jpg",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "title": "Retriever",
+          "image": "retriever.png",
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "title": "Shiba",
+          "image": "shiba.png",
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "title": "Sheltie",
+          "image": "sheltie.jpg",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "title": "Bulldog",
+          "image": "bulldog.jpg",
+          "quantity": 1
+        }
+      ],
+      "dailyLimit": 9,
+      "availableDate": "2024-05-15",
+      "id": 6
     }
   ],
   "carts": [
@@ -304,6 +441,36 @@
         }
       ],
       "id": 4
+    },
+    {
+      "userId": 5,
+      "products": [
+        {
+          "title": "Refreshing Dog Toothpaste - 75g",
+          "price": "56.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114463%2Fcached%2FiEyrPYNU663a0af94f400_1715079929_420x420.jpg&w=1920&q=100",
+          "date": "2024-04-27",
+          "quantity": 2,
+          "selected": true,
+          "productId": 4
+        }
+      ],
+      "id": 5
+    },
+    {
+      "userId": 6,
+      "products": [
+        {
+          "title": "Advanced Herbal Recovery Liquid Pet Shampoo (Free Supplement Trial Set)",
+          "price": "80.9",
+          "image": "https://erp-image.sgliteasset.com/_next/image?url=https%3A%2F%2Fcdn1.sgliteasset.com%2Fmaoupmal%2Fimages%2Fproduct%2Fproduct-3114459%2Fcached%2F8xPCohYC663a0af60ce0f_1715079926_420x420.jpg&w=1920&q=100",
+          "date": "2024-05-9",
+          "quantity": 1,
+          "selected": true,
+          "productId": 2
+        }
+      ],
+      "id": 6
     }
   ],
   "users": [
@@ -334,6 +501,20 @@
       "password": "$2a$10$Hz.rdmY1eiFQIWvY9FSvYelAVQ.NJ1E6sO7h6tT.t6ME8LpGVaRK6",
       "cartId": 4,
       "collectionId": 4
+    },
+    {
+      "email": "test4@gmail.com",
+      "id": 5,
+      "password": "$2a$10$Qvo1QMR0a66iswsrKNaEHuiSh7pA747/ZotSzN0TuA.FSGmbDcAwG",
+      "cartId": 5,
+      "collectionId": 5
+    },
+    {
+      "email": "test5@gmail.com",
+      "id": 6,
+      "password": "$2a$10$vbfSXLe0tH5NXjWSQHABt.adqmT.yDDmdyDdKbnN4WUt6J/RZfrMS",
+      "cartId": 6,
+      "collectionId": 6
     }
   ]
 }
