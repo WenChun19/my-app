@@ -10,6 +10,7 @@ import Login from "./routes/Login.jsx";
 import LuckDraw from "./routes/LuckDraw.jsx";
 import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
 import TradingCard from "./routes/TradingCard.jsx";
+import Signup from "./routes/Signup.jsx";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
       },
       {
         element: <ProtectedRoutes />,

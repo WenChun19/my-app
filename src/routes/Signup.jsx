@@ -2,8 +2,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { signIn } from "../api/auth";
-import { accessToken, cartId, collectionId } from "../constants";
+import { editUser, signUp } from "../api/auth";
+import { addCartProduct } from "../api/carts";
+import { addTradingCollections } from "../api/collections";
+import {
+  accessToken,
+  cartId,
+  collectionId,
+  firstDailyLimit,
+} from "../constants";
 import { useAuth } from "../provider/AuthProvider";
 import { setCookie } from "../utils/cookies-helper";
 
@@ -14,7 +21,7 @@ const loginSchema = z.object({
     .min(6, { message: "Password must contain at least 6 characters" }),
 });
 
-const Login = () => {
+const Signup = () => {
   const { isLogin, setIsLogin } = useAuth();
   const navigate = useNavigate();
   const { register, handleSubmit, formState } = useForm({
@@ -23,8 +30,37 @@ const Login = () => {
 
   const { errors } = formState;
 
+  const registerUser = async (data) => {
+    const response = await signUp(data);
+
+    if (response?.user?.id) {
+      setCookie(accessToken, response?.accessToken);
+      const cart = await addCartProduct({
+        userId: response?.user?.id,
+        products: [],
+      });
+
+      const collection = await addTradingCollections({
+        userId: response?.user?.id,
+        cards: [],
+        dailyLimit: firstDailyLimit,
+        availableDate: null,
+      });
+
+      await editUser({
+        ...response?.user,
+        password: data?.password,
+        cartId: cart?.id,
+        collectionId: collection?.id,
+      });
+      setCookie(cartId, cart?.id);
+      setCookie(collectionId, collection?.id);
+      navigate("/");
+    }
+  };
+
   const onSubmit = async (data) => {
-    const response = await signIn(data);
+    const response = await registerUser(data);
 
     console.log(response);
     if (response?.accessToken) {
@@ -46,7 +82,7 @@ const Login = () => {
           className="flex flex-col mx-4 space-y-5"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center font-bold">LOGIN</h1>
+          <h1 className="text-center font-bold">SIGNUP</h1>
           <div>
             <label
               className={`input ${
@@ -104,9 +140,9 @@ const Login = () => {
           </div>
           <div className=" flex self-end mt-2">
             <div className="text-xs text-cyan-600 pr-3 pb-3 w-[200px] self-end text-right">
-              Don&apos;t have an account?
+              Got account already?
               <span className="block font-bold mr-2 underline">
-                <Link to="/signup">Join us now</Link>
+                <Link to="/login">Sign in now</Link>
               </span>
             </div>
             <button className="btn btn-primary ">Submit</button>
@@ -117,4 +153,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
