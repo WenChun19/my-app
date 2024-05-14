@@ -10,10 +10,15 @@ import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { comingDailyLimit } from "../constants";
 import PopUpModal from "../components/trading-card/PopUpModal";
 import { useRef, useState } from "react";
+import WinningDrawModal from "../components/trading-card/WinningDrawModal";
+// import { updateLuckyDrawEntries } from "../api/entries";
+
 dayjs.extend(isSameOrAfter);
 
 const TradingCard = () => {
-  const ref = useRef();
+  const cardDrawModalRef = useRef();
+  const winningDrawModalRef = useRef();
+
   const [randomCard, setRandomCard] = useState(null);
   const { data: tradingCards } = useQuery({
     queryKey: ["tradingCards"],
@@ -26,12 +31,33 @@ const TradingCard = () => {
   });
 
   const queryClient = useQueryClient();
-  const mutation = useMutation({
+  const tradingMutation = useMutation({
     mutationFn: updateTradingCollection,
     onSuccess: () => {
       queryClient.invalidateQueries("tradingCollection");
     },
   });
+
+  // const luckyDrawMutation = useMutation({
+  //   mutationFn: updateLuckyDrawEntries,
+  // });
+
+  const handleWinningDraw = () => {
+    const qualifiedCardIndex = tradingCollection?.cards?.findIndex(
+      (card) => +card?.quantity >= 10
+    );
+
+    if (qualifiedCardIndex !== -1) {
+      tradingCollection?.cards.splice(qualifiedCardIndex, 1);
+
+      if (winningDrawModalRef?.current) {
+        winningDrawModalRef.current.showModal();
+      }
+
+      // update lucky drawn entries
+      // luckyDrawMutation.mutate(qualifiedCard);
+    }
+  };
 
   const handleDrawCard = () => {
     if (Object.keys(tradingCollection)?.length === 0) {
@@ -60,8 +86,8 @@ const TradingCard = () => {
     if (allowDraw && randomCard) {
       setRandomCard(randomCard);
 
-      if (ref?.current) {
-        ref.current.showModal();
+      if (cardDrawModalRef?.current) {
+        cardDrawModalRef.current.showModal();
       }
 
       const currentCardCollectionIndex =
@@ -98,12 +124,14 @@ const TradingCard = () => {
       // console.log(randomIndex);
       // console.log(randomCard);
       // console.log(updatedTradingCollection);
+      // handleWinningDraw();
     }
-    console.log(updatedTradingCollection);
-    mutation.mutate(updatedTradingCollection);
-  };
 
-  const handleClaimLuckyDraw = () => {};
+    handleWinningDraw();
+
+    console.log(updatedTradingCollection);
+    tradingMutation.mutate(updatedTradingCollection);
+  };
 
   return (
     <section className="h-full bg-trading-background bg-cover relative">
@@ -150,15 +178,16 @@ const TradingCard = () => {
               "day"
             ) && tradingCollection?.dailyLimit > 0
               ? `You have ${tradingCollection?.dailyLimit} chances for drawing cards today`
-              : "Owow no more already! Come back tomorrow"}
+              : "Ow ow no more already! Come back tomorrow"}
           </div>
         </div>
       </div>
       <PopUpModal
-        ref={ref}
+        ref={cardDrawModalRef}
         title={randomCard?.title}
         image={randomCard?.image}
       />
+      <WinningDrawModal ref={winningDrawModalRef} />
     </section>
   );
 };

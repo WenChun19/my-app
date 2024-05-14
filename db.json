@@ -323,12 +323,6 @@
       "userId": 6,
       "cards": [
         {
-          "id": 3,
-          "title": "Husky",
-          "image": "husky-left-white.png",
-          "quantity": 2
-        },
-        {
           "id": 5,
           "title": "Chihuahua",
           "image": "chihuahua-left.jpg",
@@ -357,6 +351,11 @@
           "title": "Bulldog",
           "image": "bulldog.jpg",
           "quantity": 1
+        },
+        {
+          "id": 3,
+          "title": "Husky",
+          "quantity": 2
         }
       ],
       "dailyLimit": 9,
