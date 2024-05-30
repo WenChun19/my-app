@@ -1,4 +1,5 @@
-import { accessToken, collectionId } from "../constants";
+import dayjs from "dayjs";
+import { accessToken, collectionId, comingDailyLimit } from "../constants";
 import { getCookie } from "../utils/cookies-helper";
 import { validateResult } from "../utils/validation-helpers";
 
@@ -22,6 +23,11 @@ export const getTradingCollection = async () => {
     );
 
     result = await response.json();
+
+    if (dayjs().isAfter(result?.availableDate, "day")) {
+      result.dailyLimit = comingDailyLimit;
+      result.availableDate = dayjs().format("YYYY-MM-DD");
+    }
   }
 
   return validateResult(result);

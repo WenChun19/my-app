@@ -69,11 +69,11 @@ const TradingCard = () => {
     let allowDraw = true;
     let availableDate = updatedTradingCollection?.availableDate;
 
-    if (dayjs().isAfter(availableDate ?? dayjs(), "day")) {
+    if (dayjs().isAfter(availableDate, "day")) {
       updatedTradingCollection.dailyLimit = comingDailyLimit;
       updatedTradingCollection.availableDate = dayjs().format("YYYY-MM-DD");
       allowDraw = true;
-    } else if (dayjs().isBefore(availableDate ?? dayjs(), "day")) {
+    } else if (dayjs().isBefore(availableDate, "day")) {
       allowDraw = false;
       console.log("please come back tomorrow");
     }
@@ -113,7 +113,7 @@ const TradingCard = () => {
 
       if (
         updatedTradingCollection.dailyLimit == 0 &&
-        dayjs().isSame(availableDate ?? dayjs(), "day")
+        dayjs().isSame(availableDate, "day")
       ) {
         updatedTradingCollection.dailyLimit = comingDailyLimit;
         updatedTradingCollection.availableDate = dayjs()
@@ -173,10 +173,8 @@ const TradingCard = () => {
           </div>
 
           <div className="text-white w-20 mt-3 text-xs pl-2">
-            {dayjs().isSameOrAfter(
-              tradingCollection?.availableDate ?? dayjs(),
-              "day"
-            ) && tradingCollection?.dailyLimit > 0
+            {dayjs().isSameOrAfter(tradingCollection?.availableDate, "day") &&
+            tradingCollection?.dailyLimit > 0
               ? `You have ${tradingCollection?.dailyLimit} chances for drawing cards today`
               : "Ow ow no more already! Come back tomorrow"}
           </div>

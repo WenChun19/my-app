@@ -13,6 +13,7 @@ import {
 } from "../constants";
 import { useAuth } from "../provider/AuthProvider";
 import { setCookie } from "../utils/cookies-helper";
+import dayjs from "dayjs";
 
 const loginSchema = z.object({
   email: z.string().min(1, { message: "Email is required" }),
@@ -44,7 +45,7 @@ const Signup = () => {
         userId: response?.user?.id,
         cards: [],
         dailyLimit: firstDailyLimit,
-        availableDate: null,
+        availableDate: dayjs().format('YYYY-MM-DD'),
       });
 
       await editUser({

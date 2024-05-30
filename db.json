@@ -96,37 +96,37 @@
         {
           "id": 8,
           "title": "Boxer",
-          "quantity": 3
+          "quantity": 4
         },
         {
           "id": 6,
           "title": "Beagle",
-          "quantity": 1
+          "quantity": 4
         },
         {
           "id": 9,
           "title": "Sheltie",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 7,
           "title": "Poodle",
-          "quantity": 1
+          "quantity": 3
         },
         {
           "id": 3,
           "title": "Husky",
-          "quantity": 3
+          "quantity": 4
         },
         {
           "id": 1,
           "title": "Shiba",
-          "quantity": 1
+          "quantity": 5
         },
         {
           "id": 5,
           "title": "Chihuahua",
-          "quantity": 3
+          "quantity": 7
         },
         {
           "id": 4,
@@ -136,15 +136,15 @@
         {
           "id": 10,
           "title": "Terrier",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 2,
           "title": "Retriever",
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "availableDate": "2024-05-15",
+      "availableDate": "2024-05-19",
       "dailyLimit": 9
     },
     {
@@ -287,17 +287,17 @@
         {
           "id": 9,
           "title": "Sheltie",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 8,
           "title": "Boxer",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 5,
           "title": "Chihuahua",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 10,
@@ -307,16 +307,28 @@
         {
           "id": 6,
           "title": "Beagle",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 3,
           "title": "Husky",
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "image": "poodle-left-white.png",
           "quantity": 1
+        },
+        {
+          "id": 4,
+          "title": "Bulldog",
+          "image": "bulldog.jpg",
+          "quantity": 3
         }
       ],
-      "dailyLimit": 1,
-      "availableDate": null,
+      "dailyLimit": 9,
+      "availableDate": "2024-05-16",
       "id": 5
     },
     {
@@ -338,13 +350,13 @@
           "id": 1,
           "title": "Shiba",
           "image": "shiba.png",
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
           "title": "Sheltie",
           "image": "sheltie.jpg",
-          "quantity": 1
+          "quantity": 5
         },
         {
           "id": 4,
@@ -356,10 +368,28 @@
           "id": 3,
           "title": "Husky",
           "quantity": 2
+        },
+        {
+          "id": 10,
+          "title": "Terrier",
+          "image": "terrier-white.jpg",
+          "quantity": 1
+        },
+        {
+          "id": 8,
+          "title": "Boxer",
+          "image": "boxer.jpg",
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "title": "Poodle",
+          "image": "poodle-left-white.png",
+          "quantity": 1
         }
       ],
       "dailyLimit": 9,
-      "availableDate": "2024-05-15",
+      "availableDate": "2024-05-16",
       "id": 6
     }
   ],

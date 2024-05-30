@@ -1,8 +1,8 @@
-import React from 'react'
+import FortuneWheel from "../components/lucky-draw/FortuneWheel"
 
 const LuckDraw = () => {
   return (
-    <div>LuckDraw</div>
+    <FortuneWheel />
   )
 }
 
